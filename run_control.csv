@@ -1,0 +1,52 @@
+﻿state_name,po_code,fips,year,region
+Alabama,AL,01,2019,South
+Alaska,AK,02,2019,West
+Arizona,AZ,04,2019,West
+Arkansas,AR,05,2019,South
+California,CA,06,2019,West
+Colorado,CO,08,2019,West
+Connecticut,CT,09,2019,Northeast
+Delaware,DE,10,2019,South
+District of Columbia,DC,11,2019,South
+Florida,FL,12,2019,South
+Georgia,GA,13,2019,South
+Hawaii,HI,15,2019,West
+Idaho,ID,16,2019,West
+Illinois,IL,17,2019,Midwest
+Indiana,IN,18,2019,Midwest
+Iowa,IA,19,2019,Midwest
+Kansas,KS,20,2019,Midwest
+Kentucky,KY,21,2019,South
+Louisiana,LA,22,2019,South
+Maine,ME,23,2019,Northeast
+Maryland,MD,24,2019,South
+Massachusetts,MA,25,2019,Northeast
+Michigan,MI,26,2019,Midwest
+Minnesota,MN,27,2019,Midwest
+Mississippi,MS,28,2019,South
+Missouri,MO,29,2019,Midwest
+Montana,MT,30,2019,West
+Nebraska,NE,31,2019,Midwest
+Nevada,NV,32,2019,West
+New Hampshire,NH,33,2019,Northeast
+New Jersey,NJ,34,2019,Northeast
+New Mexico,NM,35,2019,West
+New York,NY,36,2019,Northeast
+North Carolina,NC,37,2019,South
+North Dakota,ND,38,2019,Midwest
+Ohio,OH,39,2019,Midwest
+Oklahoma,OK,40,2019,South
+Oregon,OR,41,2019,West
+Pennsylvania,PA,42,2019,Northeast
+Rhode Island,RI,44,2019,Northeast
+South Carolina,SC,45,2019,South
+South Dakota,SD,46,2019,Midwest
+Tennessee,TN,47,2019,South
+Texas,TX,48,2019,South
+Utah,UT,49,2019,West
+Vermont,VT,50,2019,Northeast
+Virginia,VA,51,2019,Northeast
+Washington,WA,53,2019,West
+West Virginia,WV,54,2019,South
+Wisconsin,WI,55,2019,Midwest
+Wyoming,WY,56,2019,West
