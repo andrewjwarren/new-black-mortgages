@@ -7,9 +7,8 @@ Created on Wed May  5 13:00:29 2021
 # This script downloads loan-level data from the HMDA API for every state-year combination in the run_control file.  
 
 # Before running:
-# 1. Create a folder in your directory called "raw_hmda_data"
-# 2. Ensure run_control.csv has every state-year you want to iterate over (and only those state-years)
-# 3. Crack open a beer and put on a record. EP if you have a fast internet connection and double LP if slow.
+# 1. Ensure run_control.csv has every state-year you want to iterate over (and only those state-years)
+# 2. Make yourself a drink and put on a record. EP if you have a fast internet connection and double LP if slow.
 
 import pandas as pd
 import requests

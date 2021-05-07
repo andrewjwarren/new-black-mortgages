@@ -120,7 +120,7 @@ for index, row in run_control.iterrows():
     # Ratio of the two rates, our outcome of interest.
     merged['rate_ratio'] = merged['pct_black_purchases'] / merged['pct_black_pop']
     
-    # Portion of homes in county that are single-unit
+    # Portion of homes in county that are single-unit.
     merged['pct_single_unit'] = (merged["B25024_002E"] + merged["B25024_003E"]) / merged["B25024_001E"]
     
     
