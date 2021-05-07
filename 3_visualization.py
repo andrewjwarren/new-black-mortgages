@@ -7,6 +7,8 @@ Created on Wed May  5 07:29:29 2021
 
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
+import itertools
 
 # %%
 # Creating a single data frame from all of the data downloaded and organized in the previous script.
@@ -40,9 +42,9 @@ for index, row in run_control.iterrows():
 
 all_counties = all_counties.set_index('county_code')
 
+all_counties['med_home_value_thous'] = all_counties['med_home_value'] / 1000
 
-
-# Removing improbable outlier, Fulton County Illinois. Median Black income > $250k
+# Removing improbable outlier, Fulton County Illinois. Median Black income > $250k and no Black home purchases.
 all_counties = all_counties.drop(['17057'])
 
 # Slicing up for analysis
@@ -77,65 +79,73 @@ low_summary = low_by_region.mean()
 # How are scores distributed overall, by region?
 
 # How are scores related to med. home value, pct. single unit, med. income, med. black income, monthly costs
-sns.set_style()
-scatter1 = sns.scatterplot(data=all_counties,
-                x='med_home_value',
-                y='rate_ratio',
-                size='total_population',
-                sizes=(5,2000),
-                hue='region',
-                alpha=0.5)
-scatter1.legend(fontsize=12, bbox_to_anchor=(1,1))
-
-
 
 
 sns.set_style()
-scatter2 = sns.scatterplot(data=all_counties,
-                x='pct_single_unit',
+sns.set_palette("deep")
+palette = itertools.cycle(sns.color_palette())
+
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2,2)
+
+sns.scatterplot(data=midwest_counties,
+                x='med_home_value_thous',
                 y='rate_ratio',
+                ax=ax1,
                 size='total_population',
-                sizes=(5,2000),
-                hue='region',
-                alpha=0.5)
-scatter2.legend(fontsize=12, bbox_to_anchor=(1,1))
+                sizes=(5,3000),
+                color=next(palette),
+                legend=None,
+                alpha=0.5 )
+ax1.set_title("Midwest")
+ax1.set_xlabel(None)
+ax1.set_ylabel(None)
+ax1.set_xlim(0,1000)
 
-
-sns.set_style()
-scatter3 = sns.scatterplot(data=all_counties,
-                x='med_black_hh_income',
+sns.scatterplot(data=northeast_counties,
+                x='med_home_value_thous',
                 y='rate_ratio',
+                ax=ax2,
                 size='total_population',
-                sizes=(5,2000),
-                hue='region',
-                alpha=0.5)
-scatter3.legend(fontsize=12, bbox_to_anchor=(1,1))
+                sizes=(5,3000),
+                color=next(palette),
+                legend=None,
+                alpha=0.5 )
+ax2.set_title("Northeast")
+ax2.set_xlabel(None)
+ax2.set_ylabel(None)
+ax2.set_xlim(0,1000)
 
-
-sns.set_style()
-scatter4 = sns.scatterplot(data=all_counties,
-                x='med_hh_income',
+sns.scatterplot(data=west_counties,
+                x='med_home_value_thous',
                 y='rate_ratio',
+                ax=ax3,
                 size='total_population',
-                sizes=(5,2000),
-                hue='region',
-                alpha=0.5)
-scatter4.legend(fontsize=12, bbox_to_anchor=(1,1))
+                sizes=(5,3000),
+                color=next(palette),
+                legend=None,
+                alpha=0.5 )
+ax3.set_title("West")
+ax3.set_xlabel(None)
+ax3.set_ylabel(None)
+ax3.set_xlim(0,1000)
+ax3.set_ylim(-0.1,2.25)
 
-
-sns.set_style()
-scatter5 = sns.scatterplot(data=high_counties,
-                x='med_black_hh_income',
+sns.scatterplot(data=south_counties,
+                x='med_home_value_thous',
                 y='rate_ratio',
+                ax=ax4,
                 size='total_population',
-                sizes=(5,2000),
-                hue='region',
-                alpha=0.5)
-scatter5.legend(fontsize=12, bbox_to_anchor=(1,1))
+                sizes=(5,3000),
+                color=next(palette),
+                legend=None,
+                alpha=0.5 )
+ax4.set_title("South")
+ax4.set_xlabel(None)
+ax4.set_ylabel(None)
+ax4.set_xlim(0,1000)
 
-sns.kdeplot(data=all_counties,
-            x='rate_ratio',
-            hue='region',
-            fill=True,
-            alpha=0.5)
+fig.set_size_inches(10,7)
+fig.tight_layout()
+fig.savefig("by_region.png", dpi=300)
+
 
