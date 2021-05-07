@@ -1,2 +1,2 @@
 # new-black-mortgages
-Where is Black homeownership thriving in the U.S. ?
+Where is the Black homeownership gap closing in the U.S. ?
