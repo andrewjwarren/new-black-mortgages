@@ -19,6 +19,7 @@ run_control = pd.read_csv("run_control.csv", dtype=str)
 all_counties = pd.DataFrame()
 
 # Pulling each .csv file out of the output folder according to its name and stacking them all up.
+
 for index, row in run_control.iterrows():
     
     state = row['po_code']
@@ -45,41 +46,33 @@ all_counties = all_counties.set_index('county_code')
 all_counties['med_home_value_thous'] = all_counties['med_home_value'] / 1000
 
 # Removing improbable outlier, Fulton County Illinois. Median Black income > $250k and no Black home purchases.
+
 all_counties = all_counties.drop(['17057'])
 
-# Slicing up for analysis
+# Slicing up by region for analysis
 
-is_high_county = all_counties['rate_ratio'] > 0.9
-is_low_county = all_counties['rate_ratio'] < 0.5
 is_south = all_counties['region'] == "South"
 is_midwest = all_counties['region'] == "Midwest"
 is_northeast = all_counties['region'] == "Northeast"
 is_west = all_counties['region'] == "West"
 
-high_counties = all_counties[is_high_county]
-low_counties = all_counties[is_low_county]
 south_counties = all_counties[is_south]
 midwest_counties = all_counties[is_midwest]
 northeast_counties = all_counties[is_northeast]
 west_counties = all_counties[is_west]
 
 by_region = all_counties.groupby('region')
-high_by_region = high_counties.groupby('region')
-low_by_region = low_counties.groupby('region')
 
-summary = by_region.mean()
-high_summary = high_by_region.mean()
-low_summary = low_by_region.mean()
+print(by_region[['rate_ratio','med_home_value_thous']].median())
 
 # %%
 # Visualizations
 # ----------------------------------------------------------------------------
 
-# Questions:
-# How are scores distributed overall, by region?
-
-# How are scores related to med. home value, pct. single unit, med. income, med. black income, monthly costs
-
+# Creating a scatterplot of county bubbles, faceted by region.
+# X-axis is median home value in thousands of dollars.
+# Y-axis is Black new home purchase ratio.
+# Size of bubbles is proportionate to the county's total population.
 
 sns.set_style()
 sns.set_palette("deep")
