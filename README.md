@@ -13,9 +13,9 @@ The Black Home Purchase Ratio is calculated for every county with more than 1,00
 ___
 ## Repository Contents
 The repository contains the following:
-  *Three scripts that both download and analyze data. They must be run in order.
-  *run_control.csv, a file that the scripts use to loop through specific states and years.
-  *Two empty folders, 'raw_hmda_data' and 'output', where the scripts will dump state-year data as they download and process it.
+* Three scripts that both download and analyze data. They must be run in order.
+* run_control.csv, a file that the scripts use to loop through specific states and years.
+* Two empty folders, 'raw_hmda_data' and 'output', where the scripts will dump state-year data as they download and process it.
 
 ___
 ## Instructions
