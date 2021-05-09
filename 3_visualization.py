@@ -6,7 +6,7 @@ Created on Wed May  5 07:29:29 2021
 """
 
 # This script produces a single data frame from all the .csv files created in the previous script.
-# It then produces one example of a visualization that can be created with this data.
+# It then produces one example of a visualization (bubble plot) that can be created with this data.
 
 import pandas as pd
 import seaborn as sns

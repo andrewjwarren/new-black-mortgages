@@ -5,6 +5,7 @@ Created on Sun Apr 25 09:32:50 2021
 @author: andre
 """
 # This script creates a .csv file from each HMDA state-year pickle created from 1_data_gathering.py, combined with census data.
+# It will immediately return an error if Microsoft Excel has removed leading zeroes from FIPS codes in the run_control.csv file.
 
 import pandas as pd
 import requests
