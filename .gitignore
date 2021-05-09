@@ -1,4 +1,4 @@
 
-output/
-raw_hmda_data/
+output/*
+raw_hmda_data/*
 by_region.png
