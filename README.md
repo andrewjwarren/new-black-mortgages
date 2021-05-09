@@ -1,6 +1,7 @@
 # New Black Mortgages in U.S. Counties
 ### Where is the Black homeownership gap narrowing in the U.S. ?
 
+___
 ## Summary
 A large portion of U.S. household net worth comes from homeownership, and Black Americans have the [lowest homeownership rate](https://www.urban.org/urban-wire/closer-look-fifteen-year-drop-black-homeownership) of any racial group, a result of generations of discriminatory wealth-building policy that continued [well into the 20th century](https://www.npr.org/2017/05/03/526655831/a-forgotten-history-of-how-the-u-s-government-segregated-america). Naturally, making homeownership more affordable to Black Americans is a large part of many policy proposals to close the racial wealth gap.
 
@@ -22,4 +23,5 @@ ___
 1. Edit run_control.csv to where each row is a state-year combination you want to analyze. Do not change the columns. Note: these programs have only been tested with 2019 data and 50 U.S. states plus D.C. Double check results carefully if you decide to run other years.
 2. Run 1_data_gathering.py, which downloads a large .csv for every state-year in run_control.csv, pickles the file, and saves it to the raw_hmda_data folder. This may take a while on slow internet connections.
 3. Run 2_csv_creation.py, which downloads ACS data for each state-year, merges it with HMDA data, calculates a few variables of interest, and saves each resulting data frame to a .csv file in the output folder.
+  * A little over half of the counties in the U.S. are dropped at this stage because the ACS is not more than 90% confident that there are more than 1,000 Black residents.
 4. Run 3_visualization.py, which creates a single data frame from all the .csv files created in the previous script. It then produces one example of how this data can be visualized.
