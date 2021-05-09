@@ -1,4 +1,7 @@
 
 output/*
 raw_hmda_data/*
+!output/ignore_me.txt
+!raw_hmda_data/ignore_me.txt
+
 by_region.png
