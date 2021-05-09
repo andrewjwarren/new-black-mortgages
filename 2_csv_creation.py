@@ -4,7 +4,7 @@ Created on Sun Apr 25 09:32:50 2021
 
 @author: andre
 """
-# This script creates a .csv file from each HMDA state-year pickle created in the previous script, combined with census data.
+# This script creates a .csv file from each HMDA state-year pickle created from 1_data_gathering.py, combined with census data.
 
 import pandas as pd
 import requests
@@ -21,10 +21,7 @@ for index, row in run_control.iterrows():
     fips = row['fips']
     year = row['year']
 
-    
-    # %%
     # Getting the current state-year's county-level census data to merge onto HMDA data.
-    # We need population estimates by race.
     # Variable reference guide here: https://api.census.gov/data/2019/acs/acs5/variables.html
     
     api = f'https://api.census.gov/data/{year}/acs/acs5'
